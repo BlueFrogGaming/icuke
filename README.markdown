@@ -22,6 +22,8 @@ Write some scenarios like:
       When I tap "About"
       Then I should see "Author:"
 
+The cucumber steps provided by iCuke are documented [here](http://eraserhead.net/icuke/rdoc/files/lib/icuke_world_rb.html).
+
 How it works
 ------------
 
@@ -31,6 +33,15 @@ application.
 The HTTP server allows us to see an XML version of the iPhone's screen, and to emulate taps/swipes etc.
 
 iCuke should not require any code changes to your application to work, however, it relies on accessibility information to function sensibly. If your accessibility information is not accurate, iCuke may not work as expected.
+
+Troubleshooting
+---------------
+
+iCuke needs to be able to find products in your build product's directory.  In Xcode 4, you must either enable the "Place build products in locations specified by targets" option (available in the "Locations" tab of the preferences dialog), or build your project with the "xcodebuild" tool.
+
+Additionally, if you've configured a non-standard location for the build products, iCuke may not be able to find the app.
+
+If iCuke cannot find the app, you will receive a timeout error when running the Cucumber steps.
 
 Compatibility Mode
 ------------------
@@ -104,8 +115,7 @@ Note on Patches/Pull Requests
  
 * Fork the project.
 * Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
+* Add tests for it. This is important so I don't break it in a future version unintentionally.  Please cover step definitions with cucumber features and logic with specs.
 * Commit, do not mess with rakefile, version, or history.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
