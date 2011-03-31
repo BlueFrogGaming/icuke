@@ -52,7 +52,7 @@ begin
   Spec::Rake::SpecTask.new(:spec) do |t|
     t.spec_files = FileList['spec/**/*.rb']
   end
-rescue
+rescue LoadError
   desc "Run all examples (not available)"
   task :spec do
     abort "Rspec is not available. In order to run specs, you must: sudo gem install rspec"
