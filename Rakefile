@@ -8,8 +8,8 @@ begin
     gem.name = "iCuke"
     gem.summary = %Q{Cucumber support for iPhone applications}
     gem.description = %Q{Cucumber support for iPhone applications}
-    gem.email = "rob@the-it-refinery.co.uk"
-    gem.homepage = "http://github.com/unboxed/iCuke"
+    gem.email = "jason.felice@bluefroggaming.com"
+    gem.homepage = "http://github.com/BlueFrogGaming/iCuke"
     gem.authors = ["Rob Holland"]
     gem.add_dependency "cucumber", ">= 0"
     gem.add_dependency "httparty", ">= 0"
