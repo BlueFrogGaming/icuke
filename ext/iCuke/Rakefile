@@ -1,10 +1,20 @@
 require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'icuke', 'sdk')
+require 'rake/clean'
 
-task :install do
-  sh "cd sdk4.0 && rake"
-end
-task :clean do
-  sh "cd sdk4.0 && rake clean"
+version = '4.3'
+ICuke::SDK.use_latest(version)
+
+rule '.o' => '.m' do |o|
+  sh "#{ICuke::SDK.gcc} -c -o #{o.name} #{o.source}"
 end
 
+CLEAN.include('**/*.o')
+
+file ICuke::SDK.dylib => FileList['**/*.m'].ext('.o') do |t|
+  sh "#{ICuke::SDK.ld} -dynamiclib -o #{t.name} -framework Foundation -framework GraphicsServices -framework UIKit -framework CFNetwork -framework AXRuntime #{t.prerequisites.join(' ')}"
+end
+
+CLEAN.include("../#{ICuke::SDK.dylib}")
+
+task :install => ICuke::SDK.dylib
 task :default => :install

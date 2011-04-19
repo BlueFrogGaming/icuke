@@ -83,7 +83,7 @@ module ICuke
     end
     
     def self.dylib(name = 'libicuke')
-      "#{name}-sdk4.0.dylib"
+      "#{name}.dylib"
     end
     
     def self.dylib_fullpath(name = 'libicuke')
@@ -94,10 +94,6 @@ module ICuke
       ICUKE_EXT_DIR
     end
     
-    def self.sdk_ext_dir
-      File.join(ext_dir, "sdk4.0")
-    end
-    
     def self.cflags
       "#{CFLAGS} -isysroot #{root} -F/System/Library/PrivateFrameworks -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000"
     end
@@ -106,14 +102,14 @@ module ICuke
       if major_version == '4'
         abi_flags = "-fobjc-abi-version=2 -fobjc-legacy-dispatch"
       end
-      "xcrun -sdk #{fullname} gcc -I. -I#{sdk_ext_dir} -I#{sdk_ext_dir}/json #{cflags} -x objective-c #{abi_flags}"
+      "xcrun -sdk #{fullname} gcc -I. -I#{ext_dir} -I#{ext_dir}/json #{cflags} -x objective-c #{abi_flags}"
     end
     
     def self.ld
       if major_version == '4'
         abi_flags = "-Xlinker -objc_abi_version -Xlinker 2"
       end
-      "xcrun -sdk #{fullname} gcc -I. -I#{sdk_ext_dir} -I#{sdk_ext_dir}/json #{cflags} #{abi_flags}"
+      "xcrun -sdk #{fullname} gcc -I. -I#{ext_dir} -I#{ext_dir}/json #{cflags} #{abi_flags}"
     end
     
     def self.launch(application, family, environment = {})
