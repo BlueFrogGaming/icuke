@@ -1,4 +1,12 @@
 require 'rubygems'
+require 'bundler'
+begin
+  Bundler.setup
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
+end
 require 'rake'
 require './lib/icuke/sdk'
 
@@ -41,7 +49,6 @@ begin
   require 'cucumber/rake/task'
   Cucumber::Rake::Task.new(:features)
 
-  task :features => :check_dependencies
   task :features => [:lib, :app]
 rescue LoadError
   task :features do
