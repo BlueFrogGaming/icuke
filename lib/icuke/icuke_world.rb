@@ -25,7 +25,7 @@ end
 # Launching the application is the most difficult part.  Many parts can be
 # omitted, but the full form looks like this:
 #
-#   Given "iCuke" from "app/iCuke/iCuke.xcodeproj" with build configuration "Debug" is loaded in the retina iphone simulator with SDK 4.0
+#   Given "iCuke" from "app/iCuke/iCuke.xcodeproj" with build configuration "Debug" is loaded in the retina iphone simulator with SDK 4.1
 #
 # In this case:
 # * "iCuke" is the name of the app to load.
@@ -37,10 +37,8 @@ end
 #   before launching the application.  If not specified, the simulator
 #   chooses, which means that it will run with the last selected resolution.
 # * "iphone" or "ipad" selects the device type.  "iphone" is the default.
-# * The optional clause "with SDK 4.0" selects how iCuke interacts with
-#   application.  If not specified, iCuke attempts to guess based on which SDKs
-#   are installed; however, it can guess wrong.  Possible values are "3.1" and
-#   "4.0".  "4.0" should be used on 4.2 and newer SDKs
+# * The optional clause "with SDK 4.0" selects the version of the simulator
+#   used.  The iPhone simulator for that version of the SDK must be installed.
 #
 Given /^(?:"([^\"]*)" from )?"([^\"]*)"(?: with build configuration "([^\"]*)")? is loaded in the (?:(retina|non-retina) )?(?:(iphone|ipad) )?simulator(?: with SDK ([0-9.]+))?$/ do |target, project, configuration, retina, platform, sdk_version|
   if sdk_version
