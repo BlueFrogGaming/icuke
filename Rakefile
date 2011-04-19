@@ -36,6 +36,10 @@ task :lib do
   sh 'cd ext && rake'
 end
 
+task :clean do
+  sh 'cd ext && rake clean'
+end
+
 begin
   require 'cucumber/rake/task'
   Cucumber::Rake::Task.new(:features)
