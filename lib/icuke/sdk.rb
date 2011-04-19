@@ -83,14 +83,10 @@ module ICuke
     end
     
     def self.dylib(name = 'libicuke')
-      require_sdk
-      
-      "#{name}-sdk#{minor_version}.dylib"
+      "#{name}-sdk4.0.dylib"
     end
     
     def self.dylib_fullpath(name = 'libicuke')
-      require_sdk
-      
       File.join(ICUKE_EXT_DIR, dylib(name))
     end
     
@@ -99,11 +95,11 @@ module ICuke
     end
     
     def self.sdk_ext_dir
-      File.join(ext_dir, "sdk#{minor_version}")
+      File.join(ext_dir, "sdk4.0")
     end
     
     def self.cflags
-      "#{CFLAGS} -isysroot #{root} -F/System/Library/PrivateFrameworks -D__IPHONE_OS_VERSION_MIN_REQUIRED=#{major_version == '3.1' ? '30000' : '40000'}"
+      "#{CFLAGS} -isysroot #{root} -F/System/Library/PrivateFrameworks -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000"
     end
     
     def self.gcc

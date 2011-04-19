@@ -194,7 +194,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(iCukeHTTPServer);
 	
 	self.state = SERVER_STATE_RUNNING;
 	
-	if (UIApplicationDidEnterBackgroundNotification != NULL) {
+	BOOL frameworkSupports = &UIApplicationDidEnterBackgroundNotification != NULL;
+	if (frameworkSupports) {
     [[NSNotificationCenter defaultCenter]
       addObserver:self
       selector:@selector(applicationDidEnterBackground:)
@@ -272,7 +273,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(iCukeHTTPServer);
 
 	self.state = SERVER_STATE_IDLE;
 	
-	if (UIApplicationDidEnterBackgroundNotification != NULL) {
+	BOOL frameworkSupports = &UIApplicationDidEnterBackgroundNotification != NULL;
+	if (frameworkSupports) {
     [[NSNotificationCenter defaultCenter]
       removeObserver:self
       name:UIApplicationDidEnterBackgroundNotification

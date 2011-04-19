@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), '..', '..', '..', 'lib', 'icuke', 'sdk')
 require 'rake/clean'
 
-version = '4.0'
+version = '4.3'
 ICuke::SDK.use_latest(version)
 
 rule '.o' => '.m' do |o|
