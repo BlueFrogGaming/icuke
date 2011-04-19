@@ -16,8 +16,6 @@ begin
     gem.add_dependency "nokogiri", ">= 0"
     gem.add_dependency "background_process"
     gem.extensions = ['ext/Rakefile']
-    gem.files.include('ext/WaxSim/**/*')
-    gem.files.exclude('ext/WaxSim/build/**/*')
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
@@ -32,8 +30,6 @@ end
 task :app => 'app/build/Debug-iphonesimulator/Universal.app/Universal'
 
 task :lib do
-  sh "git submodule init"
-  sh "git submodule update"
   sh 'cd ext && rake'
 end
 

@@ -16,8 +16,7 @@ Gem::Specification.new do |s|
   s.extensions = ["ext/Rakefile"]
   s.extra_rdoc_files = [
     "LICENSE",
-    "README.markdown",
-    "TODO"
+    "README.markdown"
   ]
   s.files = [
     ".gitmodules",
@@ -58,12 +57,6 @@ Gem::Specification.new do |s|
     "bin/icuke-module",
     "ext/.gitignore",
     "ext/Rakefile",
-    "ext/WaxSim/Simulator.h",
-    "ext/WaxSim/Simulator.m",
-    "ext/WaxSim/WaxSim.m",
-    "ext/WaxSim/WaxSim.xcodeproj/project.pbxproj",
-    "ext/WaxSim/WaxSim_Prefix.pch",
-    "ext/WaxSim/iPhoneSimulatorRemoteClient/iPhoneSimulatorRemoteClient.h",
     "ext/iCuke/.gitignore",
     "ext/iCuke/DefaultsResponse.h",
     "ext/iCuke/DefaultsResponse.m",
