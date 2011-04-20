@@ -21,7 +21,7 @@
 #endif
 #import "iCukeHTTPResponseHandler.h"
 
-#define HTTP_SERVER_PORT 50000
+#define DEFAULT_HTTP_SERVER_PORT 50000
 
 NSString * const iCukeHTTPServerNotificationStateChanged = @"ServerNotificationStateChanged";
 
@@ -136,6 +136,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(iCukeHTTPServer);
 		object:self];
 }
 
+- (int)serverPort
+{
+	char const *port = getenv("ICUKE_HTTP_PORT");
+	if (port && atoi(port))
+		return atoi(port);
+	return DEFAULT_HTTP_SERVER_PORT;
+}
+
 //
 // start
 //
@@ -143,7 +151,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(iCukeHTTPServer);
 //
 - (void)start
 {
-  NSLog(@"[iCuke] server starting up");
+    NSLog(@"[iCuke] server starting up on port %d", [self serverPort]);
   
 	self.lastError = nil;
 	self.state = SERVER_STATE_STARTING;
@@ -170,7 +178,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(iCukeHTTPServer);
 	address.sin_len = sizeof(address);
 	address.sin_family = AF_INET;
 	address.sin_addr.s_addr = htonl(INADDR_ANY);
-	address.sin_port = htons(HTTP_SERVER_PORT);
+	address.sin_port = htons([self serverPort]);
 	CFDataRef addressData =
 		CFDataCreate(NULL, (const UInt8 *)&address, sizeof(address));
 	[(id)addressData autorelease];
