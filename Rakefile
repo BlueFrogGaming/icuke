@@ -1,4 +1,12 @@
 require 'rubygems'
+require 'bundler'
+begin
+  Bundler.setup
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
+end
 require 'rake'
 require './lib/icuke/sdk'
 
@@ -8,8 +16,8 @@ begin
     gem.name = "iCuke"
     gem.summary = %Q{Cucumber support for iPhone applications}
     gem.description = %Q{Cucumber support for iPhone applications}
-    gem.email = "rob@the-it-refinery.co.uk"
-    gem.homepage = "http://github.com/unboxed/iCuke"
+    gem.email = "jason.felice@bluefroggaming.com"
+    gem.homepage = "http://github.com/BlueFrogGaming/iCuke"
     gem.authors = ["Rob Holland"]
     gem.add_dependency "cucumber", ">= 0"
     gem.add_dependency "httparty", ">= 0"
@@ -33,11 +41,14 @@ task :lib do
   sh 'cd ext && rake'
 end
 
+task :clean do
+  sh 'cd ext && rake clean'
+end
+
 begin
   require 'cucumber/rake/task'
   Cucumber::Rake::Task.new(:features)
 
-  task :features => :check_dependencies
   task :features => [:lib, :app]
 rescue LoadError
   task :features do
@@ -52,14 +63,14 @@ begin
   Spec::Rake::SpecTask.new(:spec) do |t|
     t.spec_files = FileList['spec/**/*.rb']
   end
-rescue
+rescue LoadError
   desc "Run all examples (not available)"
   task :spec do
     abort "Rspec is not available. In order to run specs, you must: sudo gem install rspec"
   end
 end
 
-task :default => :features
+task :default => [:spec, :features]
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|

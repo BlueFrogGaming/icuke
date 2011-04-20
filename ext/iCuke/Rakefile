@@ -1,19 +1,20 @@
 require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'icuke', 'sdk')
+require 'rake/clean'
 
-SUPPORTED_SDKS = ['3.1', '4.0']
+version = '4.3'
+ICuke::SDK.use_latest(version)
 
-ICuke::SDK.minor_versions.each do |sdk|
-  unless SUPPORTED_SDKS.include?(sdk)
-    puts "Note: iCuke does not currently support version #{sdk} of the iPhone SDK, skipping"
-    next
-  end
-  
-  task :install do
-    sh "cd sdk#{sdk} && rake"
-  end
-  task :clean do
-    sh "cd sdk#{sdk} && rake clean"
-  end
+rule '.o' => '.m' do |o|
+  sh "#{ICuke::SDK.gcc} -c -o #{o.name} #{o.source}"
 end
 
+CLEAN.include('**/*.o')
+
+file ICuke::SDK.dylib => FileList['**/*.m'].ext('.o') do |t|
+  sh "#{ICuke::SDK.ld} -dynamiclib -o #{t.name} -framework Foundation -framework GraphicsServices -framework UIKit -framework CFNetwork -framework AXRuntime #{t.prerequisites.join(' ')}"
+end
+
+CLEAN.include("../#{ICuke::SDK.dylib}")
+
+task :install => ICuke::SDK.dylib
 task :default => :install

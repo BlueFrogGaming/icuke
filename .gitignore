@@ -17,3 +17,6 @@ events.plist
 
 bin/waxsim
 
+## BUNDLER
+.bundle
+path

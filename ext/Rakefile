@@ -5,4 +5,8 @@ task :install do
   sh "cd iCuke && rake"
 end
 
+task :clean do
+  sh "cd iCuke && rake clean"
+end
+
 task :default => :install
