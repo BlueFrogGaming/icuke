@@ -11,7 +11,7 @@ describe ICuke::Simulator do
       p = ICuke::Simulator::Process.new('foo', {:env => {}})
       f = "/tmp/command_was_run.#{$$}"
       p.stub(:setup_commands).and_return(["touch #{f}"])
-      p.stub(:with_options).and_return(p)
+      p.stub(:with_launch_options).and_return(p)
 
       BackgroundProcess.stub(:run).and_return(nil)
 

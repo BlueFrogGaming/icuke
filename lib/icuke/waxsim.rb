@@ -6,9 +6,9 @@ module ICuke
     include Timeout
     
     attr_accessor :current_process
-    
+
     def launch(process)
-      process = process.with_options({
+      process = process.with_launch_options({
         :env => {
           'CFFIXED_USER_HOME' => Dir.mktmpdir
         }
@@ -50,6 +50,8 @@ module ICuke
     
     class Process
       DEFAULT_CONFIGURATION = 'Debug'
+
+      attr_reader :launch_options
       
       def initialize(project_file, launch_options = {})
         @project_file = project_file
@@ -57,8 +59,8 @@ module ICuke
       end
       
       # returns a new Process, treat Process as an immutable value object
-      def with_options(options = {})
-        self.class.new(@project_file, options.merge(@launch_options))
+      def with_launch_options(options = {})
+        self.class.new(@project_file, @launch_options.deep_merge(options))
       end
 
       def setup_commands
