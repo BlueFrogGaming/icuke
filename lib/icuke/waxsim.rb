@@ -33,6 +33,7 @@ module ICuke
     end
     
     def quit
+      return unless @simulator
       get '/quit' rescue nil # results in a hard exit(0)
       @simulator.wait
       self.current_process = nil
