@@ -3,10 +3,6 @@ require 'rake'
 require 'sandbox'
 require 'shellwords'
 
-Given /^I have built the gem$/ do
-  sh 'rake build'
-end
-
 Given /^I am in a sandbox directory$/ do
   ENV['TMPDIR'] = '/tmp' # Work-around for bundler bug with '++' in path name.
   @sandbox = Sandbox.new
@@ -72,10 +68,6 @@ Given /^I have a file named "([^"]*)" containing$/ do |filename, contents|
     contents.gsub!(/\$[A-Za-z0-9_]+/) {|name| le[name[1..-1]] || ""}
     File.open(filename, 'w') {|f| f.write(contents)}
   end
-end
-
-Then /^there should be no error$/ do
-  pending # express the regexp above with the code you wish you had
 end
 
 Given /^I copy "([^"]*)" to "([^"]*)" recursively$/ do |src, dst|
