@@ -6,6 +6,7 @@ base = File.expand_path(ARGV[0])
 FileUtils.mkdir_p(File.join(base, 'features', 'support'))
 File.open(File.join(base, 'features', 'support', 'env.rb'), 'w') do |f|
   f.puts "require 'icuke/cucumber'"
+  f.puts "World(ICukeWorld)"
 end
 File.open(File.join(base, 'features', 'example.feature'), 'w') do |f|
   f.puts <<-EOS
