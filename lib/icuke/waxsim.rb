@@ -10,8 +10,7 @@ module ICuke
     def launch(process)
       process = process.with_launch_options({
         :env => {
-          'CFFIXED_USER_HOME' => Dir.mktmpdir,
-          'ICUKE_HTTP_PORT' => new_port.to_s
+          'CFFIXED_USER_HOME' => Dir.mktmpdir
         }
       })
 

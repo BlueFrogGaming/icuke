@@ -7,11 +7,12 @@ module ICuke
   class Simulator
     include Timeout
     include HTTParty
+    base_uri 'http://localhost:50000'
     
     class Error < StandardError; end
-
+    
     def view
-      get '/view'
+      get('/view')
     end
     
     def record
@@ -45,32 +46,13 @@ module ICuke
     def set_defaults(defaults)
       get '/defaults', :query => defaults.to_json
     end
-
-    MIN_ICUKE_PORT = 50000
-    MAX_ICUKE_PORT = 50199
-
-    def self.next_available_port
-      @next_available_port ||= MIN_ICUKE_PORT - 1
-      @next_available_port += 1
-      @next_available_port = MIN_ICUKE_PORT if @next_available_port > MAX_ICUKE_PORT
-      @next_available_port
-    end
-
-    def port
-      @port ||= self.class.next_available_port
-      @port
-    end
-
-    def new_port
-      @port = nil
-      port
-    end
-
+    
     def get(path, options = {})
-      options[:base_uri] = "http://localhost:#{port}"
       options[:query] = URI.escape(options[:query]) if options.has_key?(:query)
       response = self.class.get(path, options)
-      raise Simulator::Error, response.body unless response.code == 200
+      if response.code != 200
+        raise Simulator::Error, response.body
+      end
       response.body
     end
   end
