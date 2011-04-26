@@ -19,11 +19,12 @@ module ICuke
         fail "Setup command #{cmd} failed with exit status #{$?}" if $? != 0
       end
 
-      @simulator = BackgroundProcess.run(process.command)
       self.current_process = process
 
       timeout(30) do
         begin
+          @simulator.wait if @simaultor && !@simulator.running?
+          @simulator = BackgroundProcess.run(process.command) unless @simulator && @simulator.running?
           view
         rescue Errno::ECONNREFUSED, Errno::ECONNRESET, EOFError
           sleep(0.5)
