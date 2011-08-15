@@ -5,15 +5,15 @@
 
 Gem::Specification.new do |s|
   s.name = %q{iCuke}
-  s.version = "0.6.3"
+  s.version = "0.6.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Rob Holland"]
-  s.date = %q{2011-04-23}
+  s.authors = [%q{Rob Holland}]
+  s.date = %q{2011-08-15}
   s.description = %q{Cucumber support for iPhone applications}
   s.email = %q{jason.felice@bluefroggaming.com}
-  s.executables = ["icuke-module", "icuke", ".gitignore"]
-  s.extensions = ["ext/Rakefile"]
+  s.executables = [%q{.gitignore}, %q{icuke}, %q{icuke-module}]
+  s.extensions = [%q{ext/Rakefile}]
   s.extra_rdoc_files = [
     "LICENSE",
     "README.markdown"
@@ -101,6 +101,7 @@ Gem::Specification.new do |s|
     "features/starting_project.feature",
     "features/step_definitions/shell.rb",
     "features/support/env.rb",
+    "features/support/environment.rb",
     "features/supported_sdks.feature",
     "iCuke.gemspec",
     "lib/icuke.rb",
@@ -125,8 +126,8 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/BlueFrogGaming/iCuke}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.5}
   s.summary = %q{Cucumber support for iPhone applications}
   s.test_files = [
     "spec/cucumber_spec.rb",
@@ -138,7 +139,6 @@ Gem::Specification.new do |s|
   ]
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
