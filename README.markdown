@@ -84,16 +84,10 @@ iCuke does not support pinches yet. They'll be here soon!
 
 iCuke compiles against the latest 3.1 and 4.0 SDKs it can find. Compiling against 3.2 is not currently supported as Apple have released two versions with different ABIs.
 
-Future development
-------------------
-
-The initial development of iCuke was sponsored by Unboxed Consulting. That sponsorship has now ended. In order to help support the future development of iCuke please consider donating.
-
-<a href='http://www.pledgie.com/campaigns/13697'><img alt='Click here to lend your support to: iCuke and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/13697.png?skin_name=chrome' border='0' /></a>
-
 Contributors
 ------------
 
+* Rob Holland
 * Nigel Taylor
 * Aslak Hellesøy
 * Dominic Baggott
@@ -109,6 +103,8 @@ Thanks go to the people who's work iCuke is based on:
 * Matt Gallagher
 * Ian Dees
 * Felipe Barreto
+
+As the original author, Rob Holland of Unboxed Consulting deserves your special thanks.
 
 Note on Patches/Pull Requests
 -----------------------------
