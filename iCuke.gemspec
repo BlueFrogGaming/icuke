@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{iCuke}
-  s.version = "0.6.5"
+  s.version = "0.6.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Rob Holland"]
-  s.date = %q{2011-08-17}
+  s.date = %q{2011-08-21}
   s.description = %q{Cucumber support for iPhone applications}
   s.email = %q{jason.felice@bluefroggaming.com}
   s.executables = ["icuke-module", "icuke", ".gitignore"]
@@ -59,6 +59,12 @@ Gem::Specification.new do |s|
     "bin/icuke-module",
     "ext/.gitignore",
     "ext/Rakefile",
+    "ext/WaxSim/Simulator.h",
+    "ext/WaxSim/Simulator.m",
+    "ext/WaxSim/WaxSim.m",
+    "ext/WaxSim/WaxSim.xcodeproj/project.pbxproj",
+    "ext/WaxSim/WaxSim_Prefix.pch",
+    "ext/WaxSim/iPhoneSimulatorRemoteClient/iPhoneSimulatorRemoteClient.h",
     "ext/iCuke/.gitignore",
     "ext/iCuke/DefaultsResponse.h",
     "ext/iCuke/DefaultsResponse.m",
