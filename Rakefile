@@ -25,6 +25,8 @@ begin
     gem.add_dependency "rake", ">= 0"
     gem.add_dependency "background_process"
     gem.extensions = ['ext/Rakefile']
+    gem.files.include "ext/WaxSim/**/*"
+    gem.files.exclude "ext/WaxSim/build/**/*"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

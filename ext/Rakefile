@@ -1,6 +1,8 @@
 task :install do
-  sh "cd .. && git submodule init"
-  sh "cd .. && git submodule update"
+  if File.exist?(File.join('..','.git'))
+    sh "cd .. && git submodule init"
+    sh "cd .. && git submodule update"
+  end
   sh "cd WaxSim && xcodebuild install DSTROOT=../../ INSTALL_PATH=/ext/bin"
   sh "cd iCuke && rake"
 end
