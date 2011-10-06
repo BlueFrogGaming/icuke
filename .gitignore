@@ -20,3 +20,5 @@ bin/waxsim
 ## BUNDLER
 .bundle
 path
+
+.rvmrc
