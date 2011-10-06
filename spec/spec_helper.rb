@@ -7,7 +7,7 @@ $:.unshift(File.dirname(__FILE__))
 begin
   require 'rspec'
   require 'rspec/autorun'
-  Rspec.configure do |c|
+  RSpec.configure do |c|
     c.color_enabled = true
     c.before(:each) do
       ::Term::ANSIColor.coloring = true

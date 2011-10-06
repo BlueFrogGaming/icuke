@@ -60,12 +60,10 @@ rescue LoadError
 end
 
 begin
-  require 'spec/rake/spectask'
+  require 'rspec/core/rake_task'
 
   desc "Run all examples"
-  Spec::Rake::SpecTask.new(:spec) do |t|
-    t.spec_files = FileList['spec/**/*.rb']
-  end
+  RSpec::Core::RakeTask.new(:spec)
 rescue LoadError
   desc "Run all examples (not available)"
   task :spec do
@@ -74,13 +72,3 @@ rescue LoadError
 end
 
 task :default => [:spec, :features]
-
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "iCuke #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end

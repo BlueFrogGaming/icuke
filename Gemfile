@@ -6,7 +6,7 @@ gem "nokogiri"
 gem "background_process"
 
 group :development do
-  gem "rspec", "< 2.0.0"
+  gem "rspec", '>= 2'
   gem "jeweler"
   gem "sandbox"
 end
