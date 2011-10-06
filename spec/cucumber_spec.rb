@@ -1,4 +1,4 @@
-require 'spec/spec_helper'
+require 'spec_helper'
 require 'icuke'
 require 'cucumber/step_mother'
 require 'icuke/cucumber'
