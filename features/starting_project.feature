@@ -12,6 +12,7 @@ Feature: Starting a new project
       gem "iCuke", :git => "$CURRENT_REPO", :ref => "$CURRENT_REF"
       gem "rake"
       """
+    And I run "gem install bundle"
     And I run "bundle install --path=./path"
     And I run "bundle exec icuke ."
     When I run "bundle exec cucumber"
