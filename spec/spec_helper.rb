@@ -25,6 +25,17 @@ end
 
 require 'cucumber'
 
+RSpec::Matchers.define :include_touch do |type, x, y|
+  match do |what|
+    events = JSON.parse(what.to_json)
+    events = [events] unless events.kind_of?(Array)
+    events.detect do |e|
+      e["Data"]["Type"].to_i == type.to_i &&
+        e["Data"]["Paths"].first["Location"]["X"] == x &&
+        e["Data"]["Paths"].first["Location"]["Y"] == y
+    end
+  end
+end
 
 def calculate_move(x1, y1, x2, y2, step_num)
   dx = x2 - x1
@@ -32,16 +43,6 @@ def calculate_move(x1, y1, x2, y2, step_num)
   hypotenuse = Math.sqrt(dx*dx + dy*dy)
   step = 25 / hypotenuse
   return 40 + step_num * step * dx, 60 + step_num * step * dy
-end
-
-def touch_output(type, x, y)
-  '{"Data":{"Paths":[{"Size":{"X":1.0,"Y":1.0},"Location":{"X":' +
-    x.to_s +
-    ',"Y":' +
-    y.to_s +
-    '}}],"Delta":{"X":1,"Y":1},"Type":' +
-    type.to_s +
-    '}'
 end
 
 def timestamps(json)

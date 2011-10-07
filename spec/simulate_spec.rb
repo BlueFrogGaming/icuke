@@ -32,8 +32,8 @@ describe ICuke::Simulate::Gestures::Tap do
 
   it "should generate a down and up touch" do
     tap = ICuke::Simulate::Gestures::Tap.new(20, 30)
-    tap.to_json.should include touch_output(1, 20, 30)
-    tap.to_json.should include touch_output(6, 20, 30)
+    tap.should include_touch(1, 20, 30)
+    tap.should include_touch(6, 20, 30)
   end
 
 end
@@ -45,13 +45,13 @@ describe ICuke::Simulate::Gestures::Swipe do
   end
 
   it "should generate a down and up touch" do
-    @swipe.to_json.should include touch_output(1, 40, 60)
-    @swipe.to_json.should include touch_output(6, 20, 30)
+    @swipe.should include_touch(1, 40, 60)
+    @swipe.should include_touch(6, 20, 30)
   end
 
   it "should generate move touches" do
     move_x, move_y = calculate_move(40, 60, 20, 30, 1)
-    @swipe.to_json.should include touch_output(2, move_x, move_y)
+    @swipe.should include_touch(2, move_x, move_y)
   end
 
   it "should generate multiple move touches when moving over distance" do
@@ -59,7 +59,7 @@ describe ICuke::Simulate::Gestures::Swipe do
     @swipe = ICuke::Simulate::Gestures::Swipe.new(40, 60, 120, 130, 0.015, {})
     4.times do |i|
       x, y = calculate_move(40, 60, 120, 130, i+1)
-      @swipe.to_json.should include touch_output(2, x, y)
+      @swipe.should include_touch(2, x, y)
     end
   end
 
