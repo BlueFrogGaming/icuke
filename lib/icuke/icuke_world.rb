@@ -73,11 +73,11 @@ end
 #   Then I should not see "some text" within "some scope"
 #
 Then /^I should see "([^\"]*)"(?: within "([^\"]*)")?$/ do |text, scope|
-  raise %Q{Content "#{text}" not found in: #{screen.xml}} unless icuke_driver.screen.visible?(text, scope)
+  raise %Q{Content "#{text}" not found in: #{icuke_driver.screen.xml}} unless icuke_driver.screen.visible?(text, scope)
 end
 
 Then /^I should not see "([^\"]*)"(?: within "([^\"]*)")?$/ do |text, scope|
-  raise %Q{Content "#{text}" was found but was not expected in: #{screen.xml}} if icuke_driver.screen.visible?(text, scope)
+  raise %Q{Content "#{text}" was found but was not expected in: #{icuke_driver.screen.xml}} if icuke_driver.screen.visible?(text, scope)
 end
 
 ##
