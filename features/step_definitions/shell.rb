@@ -3,6 +3,8 @@ require 'rake'
 require 'sandbox'
 require 'shellwords'
 
+World(Rake::DSL)
+
 Given /^I am in a sandbox directory$/ do
   @environment = Environment.new
   @environment.unbundlerize!
