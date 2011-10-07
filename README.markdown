@@ -22,8 +22,6 @@ Write some scenarios like:
       When I tap "About"
       Then I should see "Author:"
 
-The cucumber steps provided by iCuke are documented [here](http://eraserhead.net/icuke/rdoc/files/lib/icuke_world_rb.html).
-
 How it works
 ------------
 

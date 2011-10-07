@@ -14,11 +14,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "iCuke"
-    gem.summary = %Q{Cucumber support for iPhone applications}
-    gem.description = %Q{Cucumber support for iPhone applications}
+    gem.summary = %Q{Cucumber support for iOS applications}
+    gem.description = %Q{Cucumber support for iOS applications}
     gem.email = "jason.felice@bluefroggaming.com"
     gem.homepage = "http://github.com/BlueFrogGaming/iCuke"
-    gem.authors = ["Rob Holland"]
+    gem.authors = ["Jason Felice"]
     gem.add_dependency "cucumber", ">= 0"
     gem.add_dependency "httparty", ">= 0"
     gem.add_dependency "nokogiri", ">= 0"
