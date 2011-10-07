@@ -5,15 +5,15 @@
 
 Gem::Specification.new do |s|
   s.name = %q{iCuke}
-  s.version = "0.6.6"
+  s.version = "0.7.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Rob Holland"]
-  s.date = %q{2011-08-21}
-  s.description = %q{Cucumber support for iPhone applications}
+  s.authors = [%q{Jason Felice}]
+  s.date = %q{2011-10-07}
+  s.description = %q{Cucumber support for iOS applications}
   s.email = %q{jason.felice@bluefroggaming.com}
-  s.executables = ["icuke-module", "icuke", ".gitignore"]
-  s.extensions = ["ext/Rakefile"]
+  s.executables = [%q{icuke}, %q{icuke-module}]
+  s.extensions = [%q{ext/Rakefile}]
   s.extra_rdoc_files = [
     "LICENSE",
     "README.markdown"
@@ -54,7 +54,6 @@ Gem::Specification.new do |s|
     "app/iPhone/MainWindow_Phone.xib",
     "app/iPhone/TestViewController_Phone.h",
     "app/iPhone/TestViewController_Phone.m",
-    "bin/.gitignore",
     "bin/icuke",
     "bin/icuke-module",
     "ext/.gitignore",
@@ -126,20 +125,11 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/BlueFrogGaming/iCuke}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Cucumber support for iPhone applications}
-  s.test_files = [
-    "spec/cucumber_spec.rb",
-    "spec/process_spec.rb",
-    "spec/screen_spec.rb",
-    "spec/simulate_spec.rb",
-    "spec/simulator_spec.rb",
-    "spec/spec_helper.rb"
-  ]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.5}
+  s.summary = %q{Cucumber support for iOS applications}
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
@@ -148,7 +138,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<httparty>, [">= 0"])
       s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
       s.add_runtime_dependency(%q<background_process>, [">= 0"])
-      s.add_development_dependency(%q<rspec>, ["< 2.0.0"])
+      s.add_development_dependency(%q<rspec>, [">= 2"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<sandbox>, [">= 0"])
       s.add_runtime_dependency(%q<cucumber>, [">= 0"])
@@ -162,7 +152,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<httparty>, [">= 0"])
       s.add_dependency(%q<nokogiri>, [">= 0"])
       s.add_dependency(%q<background_process>, [">= 0"])
-      s.add_dependency(%q<rspec>, ["< 2.0.0"])
+      s.add_dependency(%q<rspec>, [">= 2"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<sandbox>, [">= 0"])
       s.add_dependency(%q<cucumber>, [">= 0"])
@@ -177,7 +167,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<httparty>, [">= 0"])
     s.add_dependency(%q<nokogiri>, [">= 0"])
     s.add_dependency(%q<background_process>, [">= 0"])
-    s.add_dependency(%q<rspec>, ["< 2.0.0"])
+    s.add_dependency(%q<rspec>, [">= 2"])
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<sandbox>, [">= 0"])
     s.add_dependency(%q<cucumber>, [">= 0"])
