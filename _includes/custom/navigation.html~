@@ -1,0 +1,4 @@
+<ul class="main-navigation">
+  <li><a href="{{ root_url }}/">Blog</a></li>
+  <li><a href="{{ root_url }}/get-icuke">Get iCuke</a></li>
+</ul>
