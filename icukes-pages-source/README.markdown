@@ -1,0 +1,28 @@
+## README
+
+Ok, due to some hackery and time limitations, I had to do some weird things with Octopress to get this to work properly.
+
+Workflow now:
+
+`git checkout gh-pages`
+
+`cd icukes-pages-source`
+
+Create new content/page/etc using `rake`.
+
+Generate the site source:
+
+`rake generate`.
+
+then, `cp -r ./source/* ../`
+
+That will copy the source directory into the root git repository directory.
+
+`cd ../; git add .; git commit -m "<commit message here>"; git push origin gh-pages`
+
+Wait for github to build your content, you're done.
+To turn all of that into a one-liner,
+`rake generate; cp -r ./public/* ../; cd ../; git add .; git commit -m "<wity commit message here>"; git push origin gh-pages`
+
+
+If someone has a better way, I'd appreciate it, but due to the way github pages works, this was the only way I could figure out.

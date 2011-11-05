@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>iCuke</title>
+  <link href="http://jrgifford.github.com/icuke/atom.xml" rel="self"/>
+  <link href="http://jrgifford.github.com/icuke/"/>
+  <updated>2011-11-05T12:26:56-04:00</updated>
+  <id>http://jrgifford.github.com/icuke/</id>
+  <author>
+    <name>iCuke committers</name>
+    
+  </author>
+
+  
+  <entry>
+    <title>New iCuke Post</title>
+    <link href="http://jrgifford.github.com/icuke/blog/2011/10/04/new-icuke-post/"/>
+    <updated>2011-10-04T17:13:00-04:00</updated>
+    <id>http://jrgifford.github.com/icuke/blog/2011/10/04/new-icuke-post</id>
+    <content type="html">
+</content>
+  </entry>
+  
+</feed>
